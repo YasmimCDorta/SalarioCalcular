@@ -1,0 +1,52 @@
+﻿@model SalarioCalcular.Models.FuncionarioSal
+
+<h2 style="margin:20px; text-align:center;">Carcular Custo do Funcionário</h2>
+
+<div class="d-flex align-items-center justify-content-center mt-4">
+    <div class="col-6">
+        <form asp-action="Calcular">
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="text" style="background-color:lavender;" class="form-control" id="Nome" name="Nome" value="@Model?.Nome" required placeholder="Exemplo: Noeli" maxlength="25" />
+            </div>
+
+            <div class="form-group">
+                <label for="SalarioClt">Salário Base</label>
+                <input type="number" style="background-color:lavender;" class="form-control" id="Salario" name="Salario" step="1" value="@Model?.Salario" required placeholder="Exemplo:R$2400 " />
+            </div>
+
+            <div class="form-group">
+                <label for="Desconto">Desconto</label>
+                <input type="number" style="background-color:lavender;" class="form-control" id="Desconto" name="Desconto" step="1" value="@Model?.Desconto" required placeholder="Exemplo: R$20" />
+            </div>
+
+            <div class="form-group">
+                <label for="Beneficio">Benefício</label>
+                <input type="number" style="background-color:lavender;" class="form-control" id="Beneficio" name="Beneficio" step="1" value="@Model?.Beneficio" required placeholder="Exemplo: R$300" />
+            </div>
+
+            <button type="submit" class="btn mt-3 col-12 text-white" style="background-color:darkslateblue;">Calcular</button>
+        </form>
+    </div>
+
+</div>
+<div class="d-flex align-items-center justify-content-center mt-4">
+    <div class="col-6 ">
+         @if (ViewData["GastoFuncionario"] != null) 
+                      {
+                      <div class="d-flex ">
+                          <label for="GastoFuncionario" class="mr-2 p-2">
+                              Calculo Final do Gasto do Funcionário:
+                          </label>
+                          <span class="p-2"> @Model.Nome</span>
+                      </div>
+
+                      <div>
+                          <input type="text" class="form-control" style="background-color:lemonchiffon; " id="GastoFuncionario" readonly value="@ViewData["GastoFuncionario"].ToString()" />
+                      </div>
+
+                      }
+                  </div>
+              </div>
+
+
